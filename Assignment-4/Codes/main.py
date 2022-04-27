@@ -5,7 +5,7 @@
 
 # Defining the number of cards in a deck
 # Defining number of cards in a suit in a deck
-# Defining number of face cards in each deck
+# Defining number of face cards in each suit
 Deck = 52
 suit_cards = 13
 facecard_suit = 3
