@@ -1,0 +1,223 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+\singlespacing
+\usepackage[cmex10]{amsmath}
+
+\usepackage{amsthm}
+
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+
+\usepackage{longtable}
+\usepackage{multirow}
+
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{tkz-euclide}
+
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+
+\DeclareMathOperator*{\Res}{Res}
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\begin{document}
+
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+\raggedbottom
+\setlength{\parindent}{0pt}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\newcommand{\comb}[2]{{}^{#1}\mathrm{C}_{#2}}
+\providecommand{\abs}[1]{\vert#1\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\lVert#1\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E[ #1 ]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\numberwithin{equation}{subsection}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+\renewcommand{\thefigure}{\theproblem}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 5}
+\author{Challa Akshay Santoshi - CS21BTECH11012}
+\maketitle
+\newpage
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+\begin{center}
+  \textbf{\underline{CBSE Class 11 Probability}}\\
+\end{center}
+\begin{center}
+  \textbf{Excercise: 16.2 Question: 2}  
+\end{center}
+A dice is thrown. Describe the following events:
+\begin{enumerate}
+	\item A: a number less than 7
+	\item B: a number greater than 7
+	\item C: a multiple of 3
+	\item D: a number less than 4
+	\item E: an even number greater than 4
+	\item F: a number not less than 3
+\end{enumerate}
+Also find $A \cup B $, $A \cap B$, $B \cup C$, $E \cap F$, $D \cap E$, $A - C$, $D - E$, $E \cap \overline{F}$, $\overline{F}$
+\begin{center}
+  \textbf{Solution:}  
+\end{center}
+
+The possible outcomes when dice is thrown:
+\begin{align}
+    S = \cbrak {1,2,3,4,5,6}
+\end{align}
+\begin{enumerate}
+	\item A: a number less than 7
+	     \begin{align}
+	         A = \cbrak {1,2,3,4,5,6}
+	     \end{align}
+	\item B: a number greater than 7
+	     \begin{align}
+	         B = \phi
+	     \end{align}
+	\item C: a multiple of 3
+	     \begin{align}
+	         C = \cbrak {3,6}
+	     \end{align}
+	\item D: a number less than 4
+	     \begin{align}
+	         D = \cbrak {1,2,3}
+	     \end{align}
+	\item E: an even number greater than 4
+	     \begin{align}
+	         E = \cbrak {6}
+	     \end{align}
+	\item F: a number not less than 3
+	     \begin{align}
+	         F = \cbrak {3,4,5,6}
+	     \end{align}
+\end{enumerate}
+Using the events we can compute the following relations:\\
+\begin{enumerate}
+    \item $A \cup B $
+        \begin{align}
+            A \cup B &= \cbrak {1,2,3,4,5,6} \cup \phi\\
+            &= \cbrak {1,2,3,4,5,6}
+        \end{align}
+    \item $A \cap B $
+        \begin{align}
+            A \cap B &= \cbrak {1,2,3,4,5,6} \cap \phi\\
+            &= \phi
+        \end{align}
+    \item $B \cup C $
+        \begin{align}
+            B \cup C &= \phi \cup \cbrak {3,6}\\
+            &= \cbrak {3,6}
+        \end{align}
+    \item $E \cap F $
+        \begin{align}
+            E \cap F &= \cbrak {6} \cap \cbrak {3,4,5,6}\\
+            &= \cbrak {6}
+        \end{align}
+    \item $D \cap E $
+        \begin{align}
+            D \cap E &= \cbrak {1,2,3} \cap \cbrak {6}\\
+            &= \phi
+        \end{align}
+    \item $A - C $
+        \begin{align}
+            A - C &= \cbrak {1,2,3,4,5,6} - \cbrak {3,6}\\
+            &= \cbrak {1,2,4,5}
+        \end{align}
+    \item $D - E $
+        \begin{align}
+            D - E &= \cbrak {1,2,3} - \cbrak {6}\\
+            &= \cbrak {1,2,3}
+        \end{align}
+    \item $E \cap \overline{F}$
+        \begin{align}
+            E \cap \overline{F} &= \cbrak {6} \cap \cbrak{1,2}\\
+            &= \phi
+        \end{align}
+    \item $\overline{F}$
+        \begin{align}
+            \overline{F} &= \cbrak {1,2}
+        \end{align}
+\end{enumerate}
+
+\end{document}
