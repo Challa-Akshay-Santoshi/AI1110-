@@ -1,0 +1,134 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Inbuilt themes in beamer
+\documentclass{beamer}
+\usepackage{listings}
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{float}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\usepackage[export]{adjustbox}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+
+\usepackage{tfrupee}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{txfonts}
+
+\def\inputGnumericTable{}
+
+                                
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                        
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}
+\usepackage{caption} 
+\captionsetup[table]{skip=3pt}  
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\renewcommand{\thefigure}{\arabic{table}}
+\renewcommand{\thetable}{\arabic{table}}   
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+
+% Theme choice:
+\usetheme{CambridgeUS}
+
+
+% Title page details: 
+\title{Assignment 12} 
+\author{Challa Akshay Santoshi - CS21BTECH11012}
+\date{\today}
+\logo{\large \LaTeX{}}
+
+\begin{document}
+
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+% Remove logo from the next slides
+\logo{}
+
+
+% Outline frame
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+
+% Lists frame
+\section{Question}
+\begin{frame}{Question}
+\begin{block}{Excercise 9 Quetion 18} Show that if $R_{XX}(t_1,t_2) = q(t_1)\delta (t_1-t_2)$ and $y(t) = x(t)\ast h(t)$, then $E\{x(t)y(t)\} = h(0)q(t)$ .
+    \end{block}
+\end{frame}
+
+\section{Solution}
+\begin{frame}{Definitions}
+The autocorrelation $R(t_1,t_2)$ of x(t) is the expected value of the product $x(t_1)x(t_2)$:
+\begin{align}
+    R_{XX} (t_1, t_2) = E\{x(t_1)x(t_2)\}
+\end{align}
+Given that y(t) is the convolution of x(t) and h(t)
+\begin{align}
+    y(t) = x(t)\ast h(t)\\
+    y(t) = \int\limits_{-\infty}^\infty x(t-\alpha) h(\alpha) d\alpha
+\end{align}
+Dirac delta distribution is defined as follows
+\begin{equation}
+    \delta(x) = 
+\begin{cases}
+1, & x = 0 \\
+0, & \text{otherwise} 
+\end{cases}
+\end{equation}
+\end{frame}
+
+\begin{frame}{Proof}
+\begin{align}
+    E\{x(t)y(t)\} &= E\{x(t)\int\limits_{-\infty}^\infty x(t-\alpha) h(\alpha) d\alpha\} \\
+    &= \int\limits_{-\infty}^\infty E\{x(t)x(t - \alpha)\} h(\alpha) d\alpha\\
+    &= \int\limits_{-\infty}^\infty R_{XX} (t, t - \alpha) h(\alpha) d\alpha\\
+    &= \int\limits_{-\infty}^\infty q(t) \delta (\alpha) h(\alpha) d\alpha
+\end{align}
+\end{frame}
+
+\begin{frame}{Proof}
+\begin{align}
+    E\{x(t)y(t)\} &= q(t) \int\limits_{-\infty}^\infty \delta (\alpha) h(\alpha) d\alpha
+\end{align}
+Using the definition of $\delta(x)$, we get
+\begin{align}
+    E\{x(t)y(t)\} = q(t) h(0)
+\end{align}
+Hence proved.
+\end{frame}
+
+\end{document}
