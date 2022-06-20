@@ -1,0 +1,141 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Inbuilt themes in beamer
+\documentclass{beamer}
+\usepackage{listings}
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{float}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\usepackage[export]{adjustbox}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+
+\usepackage{tfrupee}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{txfonts}
+
+\def\inputGnumericTable{}
+
+                                
+\usepackage{color}                                            
+\usepackage{array}                                            
+\usepackage{longtable}                                        
+\usepackage{calc}                                             
+\usepackage{multirow}                                         
+\usepackage{hhline}                                           
+\usepackage{ifthen}
+\usepackage{caption} 
+\captionsetup[table]{skip=3pt}  
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\renewcommand{\thefigure}{\arabic{table}}
+\renewcommand{\thetable}{\arabic{table}}   
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+
+% Theme choice:
+\usetheme{CambridgeUS}
+
+
+% Title page details: 
+\title{Assignment 13} 
+\author{Challa Akshay Santoshi - CS21BTECH11012}
+\date{\today}
+\logo{\large \LaTeX{}}
+
+\begin{document}
+
+% Title page frame
+\begin{frame}
+    \titlepage 
+\end{frame}
+
+% Remove logo from the next slides
+\logo{}
+
+
+% Outline frame
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+
+% Lists frame
+\section{Question}
+\begin{frame}{Question}
+\begin{block}{Excercise 11 Quetion 12} Show that, if the process $X(\omega)$ is white noise with zero mean and autocovariance $Q(u)\delta(u-v)$, then its inverse Fourier transform, x(t) is WSS with power spectrum $\frac{Q(\omega)}{2\pi}$.
+    \end{block}
+\end{frame}
+
+\section{Solution}
+\begin{frame}{Definitions}
+Inverse Fourier transform of $X(\omega)$ is given by
+\begin{align}
+    x(t) = \frac{1}{2\pi} \int\limits_{-\infty}^\infty X(\omega) e^{j\omega t} d\omega
+\end{align}
+From the Fourier-inversion formula, it follows that
+\begin{align}
+    R(\tau) = \frac{1}{2\pi} \int\limits_{-\infty}^\infty S(\omega) e^{j\omega t} d\omega
+\end{align}
+The process x(t) is WSS iff $E\{X(\omega)\} = 0$ for $\omega \neq 0$ and 
+\begin{align}
+    E\{X(u)X^*(v)\} = Q(u)\delta(u-v)
+\end{align}
+\end{frame}
+
+\begin{frame}{Proof}
+Let $x(t_1)$ and $x(t_2)$ be the inverse Fourier transform of X(u) and X(v) respectively.
+\begin{align}
+    E\{x(t_1)x^*(t_2)\} &= E\{(\frac{1}{2\pi} \int\limits_{-\infty}^\infty X(u)e^{jut_1} du ) (\frac{1}{2\pi} \int\limits_{-\infty}^\infty X^*(v)e^{-jvt_2} dv )\}\\
+    &= \frac{1}{4\pi^2} \int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty E\{X(u)X^*(v)\} e^{j(ut_1 - vt_2)} du dv\\
+    &= \frac{1}{4\pi^2} \int\limits_{-\infty}^\infty (\int\limits_{-\infty}^\infty Q(u)\delta(u-v) e^{j(ut_1 - vt_2)} dv) du
+\end{align}
+\end{frame}
+
+\begin{frame}{Proof}
+\begin{align}
+    E\{x(t_1)x^*(t_2)\} &= \frac{1}{4\pi^2} \int\limits_{-\infty}^\infty Q(u) e^{ju(t_1 - t_2)} du\\
+    &= \frac{1}{4\pi^2} \int\limits_{-\infty}^\infty Q(u) e^{ju\tau} du\\
+    &= \frac{1}{2\pi} \int\limits_{-\infty}^\infty \frac{Q(u)}{2\pi} e^{ju \tau} du
+\end{align}
+\begin{align}
+    R_{xx}(\tau) = \frac{1}{2\pi} \int\limits_{-\infty}^\infty \frac{Q(\omega)}{2\pi} e^{j\omega \tau} d\omega
+\end{align}
+\end{frame}
+
+\begin{frame}{Finding Power Spectrum}
+To find the Power Spectrum, we compare the equations given below,
+\begin{align}
+    R(\tau) = \frac{1}{2\pi} \int\limits_{-\infty}^\infty S(\omega) e^{j\omega t} d\omega\\
+    R_{xx}(\tau) = \frac{1}{2\pi} \int\limits_{-\infty}^\infty \frac{Q(\omega)}{2\pi} e^{j\omega \tau} d\omega
+\end{align}
+Therefore the Power Spectrum is
+\begin{align}
+    S_{xx} (\omega) = \frac{Q(\omega)}{2\pi}
+\end{align}
+\end{frame}
+
+\end{document}
